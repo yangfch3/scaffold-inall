@@ -19,8 +19,11 @@ document.write(html)
 
 console.log($('body'))
 
-// 异步加载
-import('avalon2').then(({avalon: exports}) => {
+/**
+ * standard/eslint 不支持解析 import()
+ * 所以此处 require.ensure
+ */
+require.ensure('avalon2').then(({avalon: exports}) => { // eslint-disable-line
   avalon.define({
     $id: 'globalVm',
     logged: true

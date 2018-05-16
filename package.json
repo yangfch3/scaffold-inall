@@ -8,7 +8,7 @@
     "start": "npm run dev",
     "prebuild": "rm -rf dist",
     "build": "set NODE_ENV=production && webpack --config ./build/webpack.pro.conf.js",
-    "test": "standard src/**/*.js"
+    "lint": "standard src/**/*.js"
   },
   "standard": {
     "globals": [

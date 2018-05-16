@@ -7,4 +7,6 @@
 
 2. 开发环境：`npm run start`
 
-3. 生产环境：`npm run build`
+3. 代码审查：`npm run lint`
+
+4. 生产环境：`npm run build`
