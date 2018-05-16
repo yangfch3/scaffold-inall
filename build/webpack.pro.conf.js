@@ -52,7 +52,7 @@ module.exports = merge(baseWebpackConfig, {
       title: 'Demo1',
       filename: 'page1.html',
       template: 'static/frame.html',
-      chunks: ['runtime', 'async-vendors', 'vendors', 'page1'],
+      chunks: ['common-style', 'runtime', 'async-vendors', 'vendors', 'page1'],
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -63,7 +63,7 @@ module.exports = merge(baseWebpackConfig, {
       title: 'Demo2',
       filename: 'page2.html',
       template: 'static/frame.html',
-      chunks: ['runtime', 'async-vendors', 'vendors', 'page2'],
+      chunks: ['common-style', 'runtime', 'async-vendors', 'vendors', 'page2'],
       minify: {
         removeComments: true,
         collapseWhitespace: true,
