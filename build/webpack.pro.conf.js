@@ -9,7 +9,6 @@ const baseWebpackConfig = require('./webpack.base.conf')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
 module.exports = merge(baseWebpackConfig, {
   mode: 'production',
@@ -22,7 +21,7 @@ module.exports = merge(baseWebpackConfig, {
   optimization: {
     splitChunks: {
       cacheGroups: {
-        'vendors': {
+        vendors: {
           test: chunk => (
             chunk.resource &&
             /\.js$/.test(chunk.resource) &&

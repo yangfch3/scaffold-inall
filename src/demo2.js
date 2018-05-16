@@ -5,6 +5,7 @@
 import op from './commonModules/module2'
 import time from './commonModules/moduleX'
 import page2 from '../views/page2.art'
+import './sass/common.scss'
 import './sass/page2.scss'
 
 // 同步加载

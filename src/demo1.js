@@ -4,6 +4,7 @@
  */
 import greeting from './commonModules/module1'
 import demo1 from '../views/page1.art'
+import './sass/common.scss'
 import './sass/page1.scss'
 
 // 同步加载
