@@ -31,13 +31,13 @@ module.exports = {
       cacheGroups: {
         page1Styles: {
           name: 'page1',
-          test: (m, c, entry = 'foo') => m.constructor.name === 'CssModule' && recursiveIssuer(m) === entry,
+          test: (m, c, entry = 'page1') => m.constructor.name === 'CssModule' && recursiveIssuer(m) === entry,
           chunks: 'all',
           enforce: true
         },
         page2Styles: {
           name: 'page2',
-          test: (m, c, entry = 'bar') => m.constructor.name === 'CssModule' && recursiveIssuer(m) === entry,
+          test: (m, c, entry = 'page2') => m.constructor.name === 'CssModule' && recursiveIssuer(m) === entry,
           chunks: 'all',
           enforce: true
         }
@@ -88,7 +88,11 @@ module.exports = {
       use: [{
         loader: process.env.NODE_ENV.trim() !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader
       }, {
-        loader: 'css-loader'
+        loader: 'css-loader',
+        options: {
+          minimize: process.env.NODE_ENV.trim() === 'production',
+          sourceMap: true
+        }
       }, {
         loader: 'sass-loader'
       }]
