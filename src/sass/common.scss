@@ -1,0 +1,110 @@
+/**
+ * Created by yangfch3.
+ * Date: 2018/5/4
+ */
+a,button,input,select,textarea {
+  -webkit-tap-highlight-color: transparent
+}
+
+body,dd,dl,fieldset,form,h1,h2,h3,h4,h5,h6,legend,p,pre {
+  margin: 0
+}
+
+fieldset,ol,ul {
+  margin: 0;
+  padding: 0
+}
+
+td,th {
+  padding: 0
+}
+
+table {
+  font-size: inherit
+}
+
+fieldset,img {
+  border: none
+}
+
+li,ol,ul {
+  list-style: none
+}
+
+body {
+  font-size: 14px;
+  line-height: 1.5;
+  background: #fff;
+  color: #323232;
+  position: relative;
+  min-height: 100%;
+  -webkit-font-smoothing: antialiased
+}
+
+html {
+  height: 100%
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-size: 18px;
+  font-weight: 400
+}
+
+body,button,input,select,textarea {
+  font-family: BlinkMacSystemFont,Helvetica,"lucida Grande","PingFang SC",SCHeiti,"Microsoft YaHei",sans-serif;
+  outline: 0;
+  -webkit-text-size-adjust: none
+}
+
+button,input,select,textarea {
+  font-size: inherit;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(105, 186, 255, .13);
+}
+
+a:hover {
+  color: #000;
+}
+
+:focus {
+  outline: 0
+}
+
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary {
+  display: block
+}
+
+audio,canvas,video {
+  display: inline-block
+}
+
+.floatLeft {
+  float: left;
+}
+
+.floatRight {
+  float: right;
+}
+
+.clearFloat:after {
+  clear: both;
+  content: ".";
+  display: block;
+  line-height: 0;
+  font-size: 0;
+  visibility: hidden
+}
+
+.txtOverflowEllipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  word-break: break-all;
+  word-wrap: normal
+}

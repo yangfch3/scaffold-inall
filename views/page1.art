@@ -1,0 +1,7 @@
+{{name}}
+
+<img src="../static/img/demo.jpg" alt="背景图片">
+<img src="../static/img/logo.png" alt="Logo">
+
+<div class="div1"></div>
+<div class="div2"></div>

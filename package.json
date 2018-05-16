@@ -1,0 +1,64 @@
+{
+  "name": "scaffold",
+  "version": "0.0.1",
+  "description": "yangfch3's scaffold",
+  "main": "index.js",
+  "scripts": {
+    "dev": "set NODE_ENV=development && webpack-dev-server --inline --progress --config ./build/webpack.dev.conf.js",
+    "start": "npm run dev",
+    "prebuild": "rm -rf dist",
+    "build": "set NODE_ENV=production && webpack --config ./build/webpack.pro.conf.js",
+    "test": "standard src/**/*.js"
+  },
+  "standard": {
+    "globals": [
+      "avalon",
+      "$"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yangfch3/scaffold.git"
+  },
+  "keywords": [
+    "scaffold",
+    "webpack",
+    "babel",
+    "es6"
+  ],
+  "author": "yangfch3",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yangfch3/scaffold/issues"
+  },
+  "homepage": "https://github.com/yangfch3/scaffold#readme",
+  "dependencies": {
+    "avalon2": "^2.2.10",
+    "babel-polyfill": "^6.26.0",
+    "babel-runtime": "^6.26.0",
+    "jquery": "^3.3.1"
+  },
+  "devDependencies": {
+    "art-template": "^4.12.2",
+    "art-template-loader": "^1.4.3",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "copy-webpack-plugin": "^4.5.1",
+    "css-loader": "^0.28.11",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.4.0",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.1",
+    "standard": "^11.0.1",
+    "style-loader": "^0.21.0",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.8.3",
+    "webpack-cli": "^2.1.3",
+    "webpack-dev-server": "^3.1.4",
+    "webpack-merge": "^4.1.2"
+  }
+}

@@ -1,0 +1,13 @@
+@import "demo/index";
+
+body {
+  background-color: $primaryColor;
+}
+
+.div1 {
+  background-image: url(../../static/img/demo.jpg);
+}
+
+.div2 {
+  background-image: url(../../static/img/logo.png);
+}
