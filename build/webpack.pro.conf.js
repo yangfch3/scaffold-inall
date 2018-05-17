@@ -39,7 +39,7 @@ module.exports = merge(baseWebpackConfig, {
       }
     },
     runtimeChunk: {
-      name: 'runtime'
+      name: entrypoint => `runtime~${entrypoint.name}`
     }
   },
   plugins: [
@@ -52,7 +52,7 @@ module.exports = merge(baseWebpackConfig, {
       title: 'Demo1',
       filename: 'page1.html',
       template: 'static/frame.html',
-      chunks: ['common-style', 'runtime', 'async-vendors', 'vendors', 'page1'],
+      chunks: ['runtime~page1', 'async-vendors', 'vendors', 'page1'],
       minify: {
         removeComments: true,
         collapseWhitespace: true
@@ -62,7 +62,7 @@ module.exports = merge(baseWebpackConfig, {
       title: 'Demo2',
       filename: 'page2.html',
       template: 'static/frame.html',
-      chunks: ['common-style', 'runtime', 'async-vendors', 'vendors', 'page2'],
+      chunks: ['runtime~page2', 'async-vendors', 'vendors', 'page2'],
       minify: {
         removeComments: true,
         collapseWhitespace: true

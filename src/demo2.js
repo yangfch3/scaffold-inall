@@ -23,7 +23,7 @@ console.log($('body'))
  * standard/eslint 不支持解析 import()
  * 所以此处 require.ensure
  */
-require.ensure('avalon2').then(({avalon: exports}) => {
+import('avalon2').then(({avalon: exports}) => {
   avalon.define({
     $id: 'globalVm',
     logged: true

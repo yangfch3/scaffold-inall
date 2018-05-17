@@ -22,8 +22,6 @@ function resolve (dir) {
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
-    'common-style': ['./src/sass/common.scss'],
-
     page1: ['./src/demo1.js'],
     page2: ['./src/demo2.js']
     // vendors: '' 第三方库集中打包
