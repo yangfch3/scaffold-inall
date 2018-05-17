@@ -5,16 +5,6 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-function recursiveIssuer (m) {
-  if (m.issuer) {
-    return recursiveIssuer(m.issuer)
-  } else if (m.name) {
-    return m.name
-  } else {
-    return false
-  }
-}
-
 function resolve (dir) {
   return path.join(__dirname, dir)
 }
@@ -25,29 +15,6 @@ module.exports = {
     page1: ['./src/demo1.js'],
     page2: ['./src/demo2.js']
     // vendors: '' 第三方库集中打包
-  },
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-        page1Styles: {
-          name: 'page1',
-          test: (m, c, entry = 'page1') => m.constructor.name === 'CssModule' && recursiveIssuer(m) === entry,
-          chunks: 'all',
-          enforce: true
-        },
-        page2Styles: {
-          name: 'page2',
-          test: (m, c, entry = 'page2') => m.constructor.name === 'CssModule' && recursiveIssuer(m) === entry,
-          chunks: 'all',
-          enforce: true
-        },
-        default: {
-          minChunks: 2,
-          priority: -20,
-          reuseExistingChunk: true
-        }
-      }
-    }
   },
   output: {
     path: path.resolve(__dirname, '../dist'),

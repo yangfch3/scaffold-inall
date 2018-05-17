@@ -10,6 +10,16 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
+function recursiveIssuer (m) {
+  if (m.issuer) {
+    return recursiveIssuer(m.issuer)
+  } else if (m.name) {
+    return m.name
+  } else {
+    return false
+  }
+}
+
 module.exports = merge(baseWebpackConfig, {
   mode: 'production',
   devtool: '#source-map',
@@ -21,6 +31,18 @@ module.exports = merge(baseWebpackConfig, {
   optimization: {
     splitChunks: {
       cacheGroups: {
+        page1Styles: {
+          name: 'page1',
+          test: (m, c, entry = 'page1') => m.constructor.name === 'CssModule' && recursiveIssuer(m) === entry,
+          chunks: 'all',
+          enforce: true
+        },
+        page2Styles: {
+          name: 'page2',
+          test: (m, c, entry = 'page2') => m.constructor.name === 'CssModule' && recursiveIssuer(m) === entry,
+          chunks: 'all',
+          enforce: true
+        },
         vendors: {
           test: chunk => (
             chunk.resource &&
@@ -35,6 +57,11 @@ module.exports = merge(baseWebpackConfig, {
           minChunks: 1,
           chunks: 'async',
           name: 'async-vendors'
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true
         }
       }
     },
