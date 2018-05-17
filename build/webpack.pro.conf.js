@@ -55,8 +55,7 @@ module.exports = merge(baseWebpackConfig, {
       chunks: ['common-style', 'runtime', 'async-vendors', 'vendors', 'page1'],
       minify: {
         removeComments: true,
-        collapseWhitespace: true,
-        removeAttributeQuotes: true
+        collapseWhitespace: true
       }
     }),
     new HtmlWebpackPlugin({
@@ -66,8 +65,7 @@ module.exports = merge(baseWebpackConfig, {
       chunks: ['common-style', 'runtime', 'async-vendors', 'vendors', 'page2'],
       minify: {
         removeComments: true,
-        collapseWhitespace: true,
-        removeAttributeQuotes: true
+        collapseWhitespace: true
       }
     }),
     new CopyWebpackPlugin([
