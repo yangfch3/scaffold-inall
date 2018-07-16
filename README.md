@@ -9,4 +9,10 @@
 
 3. 代码审查：`npm run lint`
 
-4. 生产环境：`npm run build`
+4. 测试环境：`npm run build:test`
+
+5. 正式环境：`npm run build:pro`
+
+## 建议
+1. 输出的目录不要加入版本管理工具
+2. 不要再使用雪碧图，使用图标字体代替
