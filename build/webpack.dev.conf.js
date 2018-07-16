@@ -13,22 +13,33 @@ const baseWebpackConfig = require('./webpack.base.conf')
 const HOST = process.env.HOST || 'localhost'
 const PORT = (process.env.PORT && Number(process.env.PORT)) || 3001
 
+/**
+ * add hot-reload related code to entry chunks
+ * 在没有使用 webpack-dev-server，而是使用 express + webpack-dev-middleware + webpack-hot-middleware 时使用
+ */
+// Object.keys(baseWebpackConfig.entry).forEach(function (name) {
+//   baseWebpackConfig.entry[name] = ['./src/js/shared/dev-hmr-client.js'].concat(baseWebpackConfig.entry[name])
+// })
+
 module.exports = merge(baseWebpackConfig, {
   mode: 'development',
   devtool: 'cheap-module-eval-source-map',
   devServer: {
     clientLogLevel: 'warning',
-    // 单页应用避免 404 的路由重写
+    /**
+     * 如果是单页应用
+     * historyApiFallback 可以避免 404
+     */
     // historyApiFallback: {
     //   rewrites: [
-    //     { from: /.*/, to: path.posix.join(config.dev.assetsPublicPath, 'index.html') },
+    //     { from: /.*/, to: '/public/index.html') },
     //   ],
     // },
     hot: true,
     host: HOST,
     port: PORT,
     open: true,
-    publicPath: '/',
+    publicPath: '/public',
     watchOptions: {
       poll: false
     }
@@ -56,7 +67,7 @@ module.exports = merge(baseWebpackConfig, {
     new CopyWebpackPlugin([
       {
         from: path.resolve(__dirname, '../static'),
-        to: 'static',
+        to: './', // 相对于 output#path
         ignore: ['.*']
       }
     ])
